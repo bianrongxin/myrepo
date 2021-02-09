@@ -1,0 +1,146 @@
+server:
+  # 启动端口号
+  port: 8401
+  # 工程路径
+#  servlet:
+#    context-path: /workorder
+  # Tomcat中Post请求Form的最大长度
+  tomcat:
+    max-http-form-post-size: -1
+spring:
+  application:
+    name: zyhk-system
+  data:
+    neo4j:
+      username: neo4j
+      password: 1qaz@WSX
+      uri: bolt://172.16.20.160:7687
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://222.66.73.172:10041/intelligent-dispatch?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=Asia/Shanghai
+    username: root
+    password: 1qaz@WSX
+    type: com.alibaba.druid.pool.DruidDataSource
+    # druid相关配置
+    druid:
+      # 初始连接数
+      initial-size: 5
+      # 最小连接池数量
+      min-idle: 10
+      # 最大连接池数量
+      max-active: 20
+      # 配置获取连接等待超时的时间
+      max-wait: 60000
+      # 间隔多久进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      time-between-eviction-runs-millis: 60000
+      # 配置一个连接在池中最小生存的时间，单位是毫秒
+      min-evictable-idle-time-millis: 300000
+      # 配置一个连接在池中最大生存的时间，单位是毫秒
+      max-evictable-idle-time-millis: 900000
+      # 配置检测连接是否有效
+      validationQuery: SELECT 1
+      # 空闲时检测连接有效性
+      test-while-idle: true
+      # 使用连接时检测有效性
+      test-on-borrow: false
+      # 归还连接时检测有效性
+      test-on-return: false
+      filters: stat,wall,slf4j
+  # Redis
+  redis:
+    database: 2
+    host: 127.0.0.1
+    port: 6379
+    password: jsseps_0
+    jedis:
+      pool:
+        max-active: 20
+    timeout: 1000
+    expire: 86400
+  # MongoDB
+  # data:
+    # mongodb:
+      # host: 127.0.0.1
+      # port: 27017
+      # database: test
+      # 用户名
+      # username:
+      # 密码
+      # password:
+  # Spring上传文件的最大限制
+  servlet:
+    multipart:
+      max-request-size: 50MB
+      max-file-size: 50MB
+
+  #rabbitmq 配置
+#  rabbitmq:
+#    host: 192.168.198.101
+#    port: 5672
+#    username: guest
+#    password: guest
+  main:
+    allow-bean-definition-overriding: true
+
+# MyBatis
+mybatis-plus:
+  # 搜索指定包别名
+  typeAliasesPackage: com.zyhk.**.model
+  # 配置mapper的扫描，找到所有的mapper.xml映射文件
+  mapperLocations: classpath*:mapper/**/*Mapper.xml
+  # 自动驼峰命名转换
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+# PageHelper分页插件
+pagehelper:
+  # SQL方言mysql
+  helperDialect: mysql
+  # 关闭分页合理化参数
+  reasonable: false
+  # 关闭通过Mapper接口参数传递page参数
+  support-methods-arguments: false
+  params: count=countSql
+
+# 日志配置
+logging:
+  level:
+    com.zyhk: debug
+
+# shiro配置
+shiro:
+  accessTokenExpireTime: 86400
+  encryptJWTKey: U0JBUElKV1RkV2FuZzkyNjQ1NA==
+  kickout:
+    maxSession: 5
+
+
+#swagger
+swagger:
+  #base-package: com.zyhk.system.web.controller
+  title: 临港城市大脑二期-智能派单
+  version: 2.0.0
+  description: 中研宏瓴临港城市大脑二期-智能派单
+  contact: 中研宏科技术架构团队
+
+#阿里智能外呼
+aliyun-outboundbot:
+  regionId: cn-shanghai
+  endpoint: chatbot.cn-shanghai.aliyuncs.com
+  accessKeyId: 22E2BB39EAF599BB
+  secret: 473HH0DD65610A65EE6CF624DDEF5545
+  instanceId: f559f828-39ad-476f-8d76-a04126cb07a9
+  scenarioId: bcbd8622-4722-451b-955b-33b860e26001
+  scriptId: 167e2040-edbf-4b36-a67c-ed9519997fd0
+  callingNumbers: 055169129594,055169129595
+
+datacenter:
+  serverinterface:
+    basePackage: com.zyhk.rest
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://peer1:8761/eureka/, http://peer2:8762/eureka/
+
