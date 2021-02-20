@@ -10,7 +10,7 @@ server:
 spring:
   data:
     neo4j:
-      username: neo4j
+      username: neo4j1
       password: 1qaz@WSX
       uri: bolt://172.16.20.160:7687
 # 日志配置
