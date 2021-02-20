@@ -10,7 +10,7 @@ server:
 spring:
   data:
     neo4j:
-      username: neo4j1
+      username: neo4j
       password: 1qaz@WSX
       uri: bolt://172.16.20.160:7687
 # 日志配置
@@ -21,4 +21,7 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://peer1:8761/eureka/, http://peer2:8762/eureka/
+test:
+  username: 1234
+
 
