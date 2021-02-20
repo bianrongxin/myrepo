@@ -22,6 +22,6 @@ eureka:
     serviceUrl:
       defaultZone: http://peer1:8761/eureka/, http://peer2:8762/eureka/
 test:
-  username: 12345678
+  username: 12345678000
 
 
