@@ -13,6 +13,11 @@ spring:
       username: neo4j
       password: 1qaz@WSX
       uri: bolt://172.16.20.160:7687
+  rabbitmq:
+    host: localhost
+    port: 32775
+    username: guest
+    password: guest      
 # 日志配置
 logging:
   level:
