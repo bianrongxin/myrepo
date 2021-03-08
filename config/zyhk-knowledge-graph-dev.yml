@@ -14,8 +14,8 @@ spring:
       password: 1qaz@WSX
       uri: bolt://172.16.20.160:7687
   rabbitmq:
-    host: localhost
-    port: 32775
+    host: 172.16.10.160
+    port: 5672
     username: guest
     password: guest      
 # 日志配置
